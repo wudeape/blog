@@ -1,416 +1,94 @@
 <!DOCTYPE html>
-<!--[if lt IE 7]><html class="ie ie6 lt8 lt9"><![endif]-->
-<!--[if IE 7]><html class="ie ie7 lt8 lt9"><![endif]-->
-<!--[if IE 8]><html class="ie ie8 lt9"><![endif]-->
-<!--[if IE 9]><html class="ie ie9"><![endif]-->
-<!--[if (gt IE 9) | !(IE)]><!-->
-<html>
-<!--<![endif]-->
+<html lang="zh">
 <head>
-
-    <title>法友信息</title>
     <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link rel="canonical" href="https://weather-pwa-sample.firebaseapp.com/final/">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--手机端引用-->
-    <!--<meta content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" name="viewport" />-->
-    <!--让垃圾浏览器更好的使用谷歌和IE内核-->
-    <meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
-    <!-- <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon" /> -->
-    <link rel="stylesheet" href="css/common.css" />
-    <link rel="stylesheet" href="css/style.css" />
-    <link rel="manifest" href="/manifest.json">
+    <title>basic</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,user-scalable=no,minimal-ui">
+    <link rel="shortcut icon" href="https://www.baidu.com/favicon.ico" type="image/x-icon">
+    <link rel="manifest" href="./manifest.json">
+    <style>
+        body, html {
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            background: #2196f3;
+        }
 
+        .content {
+            width: 200px;
+            height: 100px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            margin: auto;
+            color: #fff;
+            text-align: center;
+        }
 
+        .text {
+            height: 30px;
+            text-align: center;
+            font-size: 24px;
+            line-height: 30px;
+        }
 
-    <script>
-        if ( /*@cc_on!@*/ false && document.documentMode === 10) document.documentElement.className += ' ie10';
-    </script>
-    <script src="js/jquery-1.9.1.min.js"></script>
-    <!--[if lt IE 9]>
-    <script src="js/html5.js"></script>
-    <![endif]-->
-    <script src="js/index.js"></script>
-    <script src="js/app.js">  </script>
-    <!-- <script src="js/include.js"> -->
+        .button {
+            width: 120px;
+            height: 40px;
+            line-height: 40px;
+            margin: 10px auto 0;
+            background: #f44336;
+            border-radius: 8px;
+            cursor: pointer;
+            display: none;
+        }
 
-    </script>
-
+        .button:active {
+            background: #f51210;
+        }
+    </style>
 </head>
 <body>
-<!-- <%@include file="WEB-INF/jsp/header.jsp"%> -->
-<include src="header.html"></include>
-<!-- <object style="border:0px" type="text/x-scriptlet" data="header.html" width=100% height=150>
-    </object> -->
-
-<!-- 首页div -->
-<div id="homepage">
-    <div class="wrap main-wrap">
-        <div class="main-top">
-            <div class="m-one">
-                <i class="front"></i>
-                <h2>企业<span>介绍</span></h2>
-                <h3>INTRODUCTION</h3>
-                <i class="back"></i>
-            </div>
-            <div class="m-two cf">
-                <div class="m-t-left">
-                    <a href="#"><img src="images/bc.png" alt=""></a>
-                </div>
-                <div class="m-t-right">
-                    <a href="#"><img src="images/07.png" alt=""  class="img"></a>
-                    <div class="title">
-                        合肥法友信息服务有限公司自2016 年正式成立，为一家民营控股企业，公司注册资金1000万元。现有员工20余人，具有博士学历的专职或兼职人员多人。
-                        公司主营业务：
-                        （1）承担客户软件开发或网站建设。
-                        （2）在线法律咨询服务网站业务，针对当事人免费发布法律咨询，给予律师合理的咨询费。
-                        （3）信息发布或广告服务，接收客户发布合法广告。
-                        公司是合肥市专业性极强的信息化服务团队，拥有高技术、高效率、高素质的专业技术团体，致力于信息资源的整合，提供全方位、多层次、立体化的信息化咨询与服务。公司的宗旨是为用户创造最大化的价值，用户的成功就是法友的追求。
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="main-cent">
-            <div class="m-one">
-                <i class="front"></i>
-                <h2>成功<span>案例</span></h2>
-                <h3>SUCCESSFUL CASE</h3>
-                <i class="back"></i>
-            </div>
-            <ul class="ak01">
-                <li>
-                    <a href="<%=request.getContextPath()%>/dyt" target="_blank">
-                        <div class="ak1">
-                            <img src="images/q1.png" alt="">
-                        </div>
-                        <div class="ak2"><span>多源异构大数据通查系统</span></div>
-                    </a>
-                </li>
-                <li>
-                    <a href="http://www.fyokc.com" target="_blank">
-                        <div class="ak1">
-                            <img src="images/q2.png" alt="">
-                        </div>
-                        <div class="ak2"><span>法友快车</span></div>
-                    </a>
-                </li>
-                <li>
-                    <div class="ak1">
-                        <img src="images/q3.png" alt="">
-                    </div>
-                    <div class="ak2"><span>企业信息化支持</span></div>
-                </li>
-                <li class="last">
-                    <div class="ak1">
-                        <img src="images/q4.png" alt="">
-                    </div>
-                    <div class="ak2"><span>信息软件研发</span></div>
-                </li>
-            </ul>
-
-        </div>
-        <div class="main-bottom">
-            <div class="m-one">
-                <i class="front"></i>
-                <h2>新闻<span>中心</span></h2>
-                <h3>NEWS CENTER</h3>
-                <i class="back"></i>
-            </div>
-            <ul class="m-two">
-                <li class="l1 cf">
-                    <div class="left">
-                        <h4>2018年6月</h4>
-                        <h3>1日</h3>
-                    </div>
-                    <div class="right">
-                        <h5><a href="#">ICP电信业务经营性许可证获批</a></h5>
-                        <%--每行30汉字，否则加标签--%>
-                        <p>2018年6月1日，公司获批中华人民共和国增值电信业务经营许可证</p>
-                        <p>编号：皖B2-20180024</p>
-                    </div>
-                </li>
-                <li class="l2 cf">
-                    <div class="left">
-                        <h4>2018年5月</h4>
-                        <h3>25日</h3>
-                    </div>
-                    <div class="right">
-                        <h5><a href="#">组织系统测试</a></h5>
-                        <p>公司组织前期产品的测试与服务器调试工作...</p>
-                    </div>
-                </li>
-                <li class="l3 cf">
-                    <div class="left">
-                        <h4>2018年5月</h4>
-                        <h3>23日</h3>
-                    </div>
-                    <div class="right">
-                        <h5><a href="#">实习生顺利通过本科毕业论文答辩</a></h5>
-                        <p>恭喜实习生顺利通过本科毕业答辩，取得了较好的答辩成绩...</p>
-                    </div>
-                </li>
-                <li class="l4 cf">
-                    <div class="left">
-                        <h4>2018年5月</h4>
-                        <h3>1日</h3>
-                    </div>
-                    <div class="right">
-                        <h5><a href="#">法友信息滨湖大数据研发中心成立</a></h5>
-                        <p>2018年4月起组建以来，历时1个月公司完成了滨湖研发中心的硬件环境</p>
-                        <p>搭建了多台高性能服务器，完成内外网协同工作环境..</p>
-                    </div>
-                </li>
-                <li class="l5 cf">
-                    <div class="left">
-                        <h4>2018年5月</h4>
-                        <h3>20日</h3>
-                    </div>
-                    <div class="right">
-                        <h5><a href="#">市场部来公司考察调研...</a></h5>
-                        <p>法友信息服务有限公司市场部来公司考察调研...</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
+    <div class="content">
+        <div class="text">Hello!</div>
+        <div class="button" id="btn">点击显示横幅</div>
     </div>
-</div>
+    <script>
+        if (navigator.serviceWorker) {
+            navigator.serviceWorker.register('./sw.js');
+        }
+    </script>
+    <script>
+        var dfdPrompt = null;
+        var button = document.getElementById('btn');
 
+        window.addEventListener('beforeinstallprompt', function (e) {
+            // 存储事件
+            dfdPrompt = e;
+            // 显示按钮
+            button.style.display = 'block';
+            // 阻止默认事件
+            e.preventDefault();
+            return false;
+        });
 
-<!-- 企业介绍->大数据研发中心 -->
-<div id="bigdatacenter" class="contentblock" >
-    <div class="wrap main-wrap">
-        <div class="main-top">
-            <div class="m-one">
-                <i class="front"></i>
-                <h2>大数据研发中心</h2>
-                <h3>BIGDATAR&DCENTER</h3>
-                <i class="back"></i>
-            </div>
-            <div class="title">
-                <p>合肥法友信息服务有限公司目前拥有自己的大数据研发中心，技术团队不光在技术上处于行业前端，更加注重于市场的研究
-                    与调查，是技术与应用的完美结合。</p>
-                <p>团队人数 ：4人</p>
-                <p>团队理念 ：秉承诚信、规范、高效的工作原则，用技术赢得市场，坚持自主创新，以创意服务取得信誉，竭诚为广大客户提供优质、高效、快捷的服务。</p>
-                <p>团队项目 ：基于大数据的多异通智能化分析查询系统、领先国内同行业的智能化服务于专家和律师的法律咨询平台。</p>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- 企业介绍->法律咨询网站部 -->
-<div id="legaladvice" class="contentblock">
-    <div class="wrap main-wrap">
-        <div class="main-top">
-            <div class="m-one">
-                <i class="front"></i>
-                <h2>法律咨询网站部</h2>
-                <h3>LEGALADVICE</h3>
-                <i class="back"></i>
-            </div>
-            <div class="title">
-                <p>
-                    公司拥有专业的法律咨询与帮助的网站--<a href="http://www.fyokc.com" target="_blank">法友快车</a>。该系统主打智能化律
-                    师，平台拥有多位国内知名律师和数十位高校法律专家。 致力于为用户提供最方便、快捷、全面的法律咨询平台。
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- 企业介绍->系统安全运维部 -->
-<div id="systemsecurity" class="contentblock">
-    <div class="wrap main-wrap">
-        <div class="main-top">
-            <div class="m-one">
-                <i class="front"></i>
-                <h2>系统安全运维部</h2>
-                <h3>SYSTEMSECURITY</h3>
-                <i class="back"></i>
-            </div>
-            <div class="title">
-                <p>
-                    公司拥有独立的大型服务器，专业的大数据运维工程师。绝对安全的保护用户的个人信息免于泄露，为用户提供优质、安全的信息服务。
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 成功案例->多异通 -->
-<div id="manydifferent" class="contentblock">
-    <div class="wrap main-wrap">
-        <div class="main-top">
-            <div class="m-one">
-                <i class="front"></i>
-                <h2>多异通</h2>
-                <h3>MANYDIFFERENT</h3>
-                <i class="back"></i>
-            </div>
-            <div class="title">
-                <p>
-                    <a href="<%=request.getContextPath()%>/dyt" target="_blank">多异通</a>系统是基于大数据检索的智能化分析平台，系统能够接收各种不同种类的数据，并不限于某一个行业
-                    的数据来源，并且都能够快速的将结果以各种图标展示出来，帮助用户分析各种数据之间的关系。系统目前最新版本为1.0
-                    版本，后续技术团队将推出更多新功能，达到一体化智能化分析。系统链接<a href="<%=request.getContextPath()%>/dyt" target="_blank">多异通</a>
-                </p>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- 成功案例->法友快车 -->
-<div id="fastfriendsexpress" class="contentblock">
-    <div class="wrap main-wrap">
-        <div class="main-top">
-            <div class="m-one">
-                <i class="front"></i>
-                <h2>法友快车</h2>
-                <h3>FASTFRIENDSEXPRESS</h3>
-                <i class="back"></i>
-            </div>
-            <div class="title">
-                <p>
-                    <a href="http://www.fyokc.com" target="_blank">法友快车</a>系统旨在为有法律咨询需求的用户与专业的法律专家之间提供一个专业、公开、简洁、易用的交流平台，除此之外，为系统中所有的注册用户提供专家
-                    搜索，文件存储，站内通信，OA办公等功能，并实现快捷发布功能以满足未注册用户快速发布案件的需求。系统内部对数据进行多重安全检测，确保
-                    用户基本信息、数据、隐私的安全性。系统链接<a href="http://www.fyokc.com" target="_blank">法友快车</a>
-                </p>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!-- 成功案例->企业云平台 -->
-<div id="enterprisecloudplatform" class="contentblock">
-    <div class="wrap main-wrap">
-        <div class="main-top">
-            <div class="m-one">
-                <i class="front"></i>
-                <h2>企业云平台</h2>
-                <h3>ENTERPRISECLOUDPLATFORM</h3>
-                <i class="back"></i>
-            </div>
-            <div class="title">
-                <p>
-                    企业云平台为公司开发研究的一款服务于其他企业网站的服务平台。企业云平台提供企业网站的个性化定制、智能化模板、站点依托等网站服务。
-                    为客户企业网站提供最优质的站点优化和订制服务。
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 领军人物 -->
-<div id="armyhead" class="contentblock">
-    <div class="wrap main-wrap">
-        <div class="main-top">
-            <div class="m-one">
-                <i class="front"></i>
-                <h2>领军人物</h2>
-                <h3>ARMYHEAD</h3>
-                <i class="back"></i>
-            </div>
-            <div class="title">
-                <p>
-                    <span class="titlecharacter"><strong>人物</strong></span>
-                    <span class="titleintroduction"><strong>简介</strong></span>
-                </p>
-                <p>
-                    <span class="titlecharacter">赵凯</span>
-                    <span class="titleintroduction">大数据研究导师，软件架构师，博士学位</span>
-                </p>
-                <p>
-                    <span class="titlecharacter">刘阿强</span>
-                    <span class="titleintroduction">大数据运维工程师，本科学历</span>
-                </p>
-                <p>
-                    <span class="titlecharacter">耿涛</span>
-                    <span class="titleintroduction">大数据智能分析工程师，本科学历</span>
-                </p>
-                <p>
-                    <span class="titlecharacter">伍兆志</span>
-                    <span class="titleintroduction">大数据UI工程师，平面设计专家，本科学历</span>
-                </p>
-                <p>
-                    <span class="titlecharacter">申雪龙</span>
-                    <span class="titleintroduction">JavaWeb全栈工程师，法律顾问，本科学历</span>
-                </p>
-
-            </div>
-        </div>
-    </div>
-</div>
-
-
-<!-- 项目承接->信息软件开发 -->
-<div id="informationsoftwaredevelopment" class="contentblock">
-    <div class="wrap main-wrap">
-        <div class="main-top">
-            <div class="m-one">
-                <i class="front"></i>
-                <h2>信息软件开发</h2>
-                <h3>INFORMATIONSOFTWAREDEVELOPMENT</h3>
-                <i class="back"></i>
-            </div>
-            <div class="title">
-                <p>
-                    公司承接的信息软件开发项目，项目资金一百万，为客户提供信息服务。
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- 项目承接->企业网站建设 -->
-<div id="corporatewebsiteconstruction" class="contentblock">
-    <div class="wrap main-wrap">
-        <div class="main-top">
-            <div class="m-one">
-                <i class="front"></i>
-                <h2>企业网站建设</h2>
-                <h3>CORPORATEWEBSITECONSTRUCTION</h3>
-                <i class="back"></i>
-            </div>
-            <div class="title">
-                <p>
-                    公司承接的企业网站建设项目。为企业提供网站定制、智能化模板、网站依托等信息服务。
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- 联系我们 -->
-<div id="contactus" class="contentblock">
-    <div class="wrap main-wrap">
-        <div class="main-top">
-            <div class="m-one">
-                <i class="front"></i>
-                <h2>联系我们</h2>
-                <h3>CONTACTUS</h3>
-                <i class="back"></i>
-            </div>
-            <div class="title">
-                <p>
-                    <span class="titlecharacter">电话</span>
-                    <span class="titleintroduction">0551-62616020</span>
-                </p>
-                <p>
-                    <span class="titlecharacter">邮箱</span>
-                    <span class="titleintroduction">lawfriends@aliyun.com</span>
-                </p>
-
-            </div>
-        </div>
-    </div>
-</div>
-<!--  -->
-<!--  -->
-<!--  -->
-
-<!-- <%@include file="WEB-INF/jsp/foot.jsp"%> -->
-<include src="foot.html"></include>
+        button.addEventListener('click', function (e) {
+            if (dfdPrompt == null) {
+                return;
+            }
+            // 通过按钮点击事件触发横幅显示
+            dfdPrompt.prompt();
+            // 监控用户的安装行为
+            dfdPrompt.userChoice.then(function (choiceResult) {
+                alert(choiceResult.outcome);
+            });
+            // 隐藏按钮
+            button.style.display = 'none';
+            dfdPrompt = null;
+        });
+    </script>
 </body>
-
 </html>
