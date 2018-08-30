@@ -1,94 +1,46 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html>
 <head>
-    <meta charset="utf-8">
-    <title>basic</title>
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1, maximum-scale=1,user-scalable=no,minimal-ui">
-    <link rel="shortcut icon" href="https://www.baidu.com/favicon.ico" type="image/x-icon">
-    <link rel="manifest" href="./manifest.json">
-    <style>
-        body, html {
-            height: 100%;
-            padding: 0;
-            margin: 0;
-            background: #2196f3;
-        }
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        .content {
-            width: 200px;
-            height: 100px;
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            margin: auto;
-            color: #fff;
-            text-align: center;
-        }
+  <title>Push Codelab</title>
 
-        .text {
-            height: 30px;
-            text-align: center;
-            font-size: 24px;
-            line-height: 30px;
-        }
-
-        .button {
-            width: 120px;
-            height: 40px;
-            line-height: 40px;
-            margin: 10px auto 0;
-            background: #f44336;
-            border-radius: 8px;
-            cursor: pointer;
-            display: none;
-        }
-
-        .button:active {
-            background: #f51210;
-        }
-    </style>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
+  <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+  <link rel="stylesheet" href="styles/index.css">
 </head>
+
 <body>
-    <div class="content">
-        <div class="text">Hello!</div>
-        <div class="button" id="btn">点击显示横幅</div>
-    </div>
-    <script>
-        if (navigator.serviceWorker) {
-            navigator.serviceWorker.register('./sw.js');
-        }
-    </script>
-    <script>
-        var dfdPrompt = null;
-        var button = document.getElementById('btn');
 
-        window.addEventListener('beforeinstallprompt', function (e) {
-            // 存储事件
-            dfdPrompt = e;
-            // 显示按钮
-            button.style.display = 'block';
-            // 阻止默认事件
-            e.preventDefault();
-            return false;
-        });
+  <header>
+    <h1>Push Codelab</h1>
+  </header>
 
-        button.addEventListener('click', function (e) {
-            if (dfdPrompt == null) {
-                return;
-            }
-            // 通过按钮点击事件触发横幅显示
-            dfdPrompt.prompt();
-            // 监控用户的安装行为
-            dfdPrompt.userChoice.then(function (choiceResult) {
-                alert(choiceResult.outcome);
-            });
-            // 隐藏按钮
-            button.style.display = 'none';
-            dfdPrompt = null;
-        });
-    </script>
+  <main>
+    <p>Welcome to the push messaging codelab. The button below needs to be
+    fixed to support subscribing to push.</p>
+    <p>
+      <button disabled class="js-push-btn mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect">
+        Enable Push Messaging
+      </button>
+    </p>
+    <section class="subscription-details js-subscription-details is-invisible">
+      <p>Once you've subscribed your user, you'd send their subscription to your
+      server to store in a database so that when you want to send a message
+      you can lookup the subscription and send a message to it.</p>
+      <p>To simplify things for this code lab copy the following details
+      into the <a href="https://web-push-codelab.glitch.me/">Push Companion
+      Site</a> and it'll send a push message for you, using the application
+      server keys on the site - so make sure they match.</p>
+      <pre><code class="js-subscription-json"></code></pre>
+    </section>
+  </main>
+
+  <script src="scripts/main.js"></script>
+
+  <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
 </body>
 </html>
